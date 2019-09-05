@@ -1,0 +1,17 @@
+
+ <p class="start_timer">Timer start time in mileseconds: <input [(ngModel)]="timeSeconds" type="number">
+ </p>
+
+ <div class="setButton">
+    <button [disabled]="timeSeconds == 0" [ngClass]="{disable:timeSeconds == 0}" (click)="setTime()">Set time</button>
+ </div>
+
+  <div  class="timer_part">
+    <p class="timer_body">{{subscribeTimer}} </p>
+
+    <div class="buttons_block">
+      <button [disabled]="timeLeft == 0" [ngClass]="{disable:timeLeft == 0}" (click)="oberserableTimer()">Start/Stop Timer</button>
+      <button [disabled]="disableStatus == false" [ngClass]="{disable:disableStatus == false}" (click)='pauseTimer()'>Wait</button>
+      <button [disabled]="disableStatus == false" [ngClass]="{disable:disableStatus == false}" (click)='resetTimer()'>Reset</button>
+    </div>
+  </div>
