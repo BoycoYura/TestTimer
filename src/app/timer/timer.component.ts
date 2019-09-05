@@ -36,14 +36,16 @@ export class TimerComponent implements OnInit {
 
       console.log("TimeLeft Start:");
       console.log(this.timeLeft);
-      this.timeLast = this.timeLeft;
+      
       this.abc = source.subscribe(val => {
-        console.log("TimeLeft:");
-        console.log(this.timeLeft);
+        this.timeLast = this.timeLeft;
         this.timeLast--;
         this.timeLeft--;
+
+
         const hours = Math.floor(this.timeLeft / 3600);
-        this.timeLast %= 3600;
+        this.timeLast = this.timeLast % 3600;
+
         const minutes = Math.floor(this.timeLast / 60);
         const seconds = this.timeLast % 60;
         this.subscribeTimer =  hours + 'h' + ':' + minutes + 'm' + ':' + seconds + 's';
